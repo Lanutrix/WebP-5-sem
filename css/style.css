@@ -13,7 +13,7 @@
   --dark: #1a1f1a;
   --font-sans: "Manrope", "Segoe UI", system-ui, sans-serif;
   --font-heading: "Cormorant Garamond", "Times New Roman", serif;
-  --container: 1120px;
+  --container: 1360px;
   --header-h: 5rem;
 }
 
@@ -125,33 +125,59 @@ ul {
 .nav-desktop {
   display: none;
   align-items: center;
-  gap: 0.25rem;
-  padding: 0.3rem;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--muted) 55%, white);
-  border: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+  gap: 1.75rem;
+  padding: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
 }
 
 .nav-desktop a {
   position: relative;
-  padding: 0.5rem 1rem;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: color-mix(in srgb, var(--foreground) 62%, transparent);
-  border-radius: 999px;
-  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  padding: 0.25rem 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: color-mix(in srgb, var(--foreground) 68%, transparent);
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+  transition: color 0.2s ease;
+}
+
+.nav-desktop a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -0.2rem;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.2s ease;
 }
 
 .nav-desktop a:hover {
   color: var(--primary);
-  background: rgba(255, 255, 255, 0.7);
+  background: none;
+}
+
+.nav-desktop a:hover::after {
+  transform: scaleX(0.55);
 }
 
 .nav-desktop a.active {
   color: var(--primary);
-  background: #fff;
-  box-shadow: 0 1px 4px rgba(26, 31, 26, 0.08);
-  font-weight: 600;
+  background: none;
+  box-shadow: none;
+  font-weight: 700;
+}
+
+.nav-desktop a.active::after {
+  transform: scaleX(1);
 }
 
 .header-cta {
@@ -656,6 +682,7 @@ ul {
   margin-bottom: 4rem;
   padding-bottom: 4rem;
   border-bottom: 1px solid var(--border);
+  scroll-margin-top: calc(var(--header-h) + 1.25rem);
 }
 
 .service-block:last-of-type {
