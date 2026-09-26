@@ -604,7 +604,7 @@ ul {
   position: relative;
   overflow: hidden;
   background-color: var(--dark);
-  padding: 4rem 1.5rem;
+  padding: 2.67rem 1.5rem;
   text-align: center;
   color: #fff;
 }
@@ -629,9 +629,9 @@ ul {
 }
 
 .page-hero-eyebrow {
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.4rem;
   font-family: var(--font-sans);
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -639,34 +639,34 @@ ul {
 }
 
 .page-hero--banner h1 {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.55rem;
   color: #fff;
-  font-size: 2rem;
+  font-size: 1.75rem;
   text-wrap: balance;
 }
 
 .page-hero-lead {
   margin: 0 auto;
   max-width: 42rem;
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 0.975rem;
+  line-height: 1.55;
   color: rgba(255, 255, 255, 0.7);
 }
 
 @media (min-width: 768px) {
   .page-hero--banner {
-    padding-top: 5.25rem;
-    padding-bottom: 5.25rem;
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
   }
 
   .page-hero--banner h1 {
-    font-size: 2.5rem;
+    font-size: 2.15rem;
   }
 }
 
 @media (min-width: 1024px) {
   .page-hero--banner h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -795,7 +795,7 @@ ul {
 /* Contact (layout matches evergreenlandtx.com/contact) */
 .contact-section {
   background: #f5f0e8;
-  padding: 5rem 0;
+  padding: 1.25rem 0 5rem;
 }
 
 .contact-layout {
@@ -1041,7 +1041,7 @@ a.info-row:hover .info-value {
 
 @media (min-width: 768px) {
   .contact-section {
-    padding: 7rem 0;
+    padding: 1.75rem 0 7rem;
   }
 
   .contact-card {
