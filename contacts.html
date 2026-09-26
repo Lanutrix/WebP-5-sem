@@ -68,17 +68,19 @@
                 <span class="field-error" role="alert"></span>
               </div>
 
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="email">Электронная почта</label>
-                  <input type="email" id="email" name="email" autocomplete="email" required />
-                  <span class="field-error" role="alert"></span>
-                </div>
-                <div class="form-group">
-                  <label for="phone">Телефон</label>
-                  <input type="tel" id="phone" name="phone" autocomplete="tel" required />
-                  <span class="field-error" role="alert"></span>
-                </div>
+              <div class="form-group">
+                <label for="phone">Телефон</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  autocomplete="tel"
+                  inputmode="tel"
+                  placeholder="+7 (___) ___-__-__"
+                  maxlength="18"
+                  required
+                />
+                <span class="field-error" role="alert"></span>
               </div>
 
               <div class="form-row">
@@ -112,7 +114,6 @@
               </div>
 
               <button class="btn btn-lg" type="submit">Отправить заявку</button>
-              <div class="form-success" data-form-success role="status" aria-live="polite"></div>
             </form>
           </div>
 
@@ -188,6 +189,20 @@
         <p>© 2026 Зелёный Берег. Все права защищены.</p>
       </div>
     </footer>
+
+    <div class="modal" id="success-modal" hidden aria-hidden="true">
+      <div class="modal-backdrop" data-modal-close></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="success-modal-title">
+        <button class="modal-close" type="button" data-modal-close aria-label="Закрыть">×</button>
+        <div class="modal-icon" aria-hidden="true">✓</div>
+        <h2 id="success-modal-title">Успешно отправлено</h2>
+        <p>
+          Заявка принята в обработку. Мы свяжемся с вами в ближайшее время, чтобы уточнить
+          детали и согласовать выезд.
+        </p>
+        <button class="btn" type="button" data-modal-close>Хорошо</button>
+      </div>
+    </div>
 
     <script src="js/script.js"></script>
   </body>
