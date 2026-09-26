@@ -730,9 +730,10 @@ ul {
 
 .contact-form {
   background: #fff;
-  border: 1px solid var(--border);
-  padding: 1.75rem;
-  border-radius: 2px;
+  border: 1px solid color-mix(in srgb, var(--border) 75%, transparent);
+  padding: 1.75rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 36px rgba(26, 31, 26, 0.06);
 }
 
 .form-group {
@@ -741,46 +742,79 @@ ul {
 
 .form-group label {
   display: block;
-  font-size: 0.875rem;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--foreground) 75%, transparent);
+  margin-bottom: 0.45rem;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem 0.9rem;
+  padding: 0.9rem 1rem;
   border: 1px solid var(--border);
-  border-radius: 2px;
-  background: var(--background);
+  border-radius: 8px;
+  background: #fff;
   font: inherit;
+  font-size: 0.975rem;
+  font-weight: 500;
   color: var(--foreground);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #b0a898;
+  font-weight: 400;
 }
 
 .form-group textarea {
-  min-height: 120px;
+  min-height: 140px;
   resize: vertical;
+  line-height: 1.5;
+}
+
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23555555' d='M1.4.6 6 5.2 10.6.6 12 2 6 8 0 2z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-group input:hover,
+.form-group select:hover,
+.form-group textarea:hover {
+  border-color: color-mix(in srgb, var(--primary) 30%, var(--border));
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  outline: 2px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 16%, transparent);
 }
 
 .form-group.error input,
 .form-group.error select,
 .form-group.error textarea {
   border-color: #b42318;
+  box-shadow: 0 0 0 3px rgba(180, 35, 24, 0.12);
 }
 
 .field-error {
   display: none;
   color: #b42318;
   font-size: 0.8rem;
-  margin-top: 0.35rem;
+  font-weight: 500;
+  margin-top: 0.4rem;
 }
 
 .form-group.error .field-error {
@@ -790,7 +824,14 @@ ul {
 .form-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1rem;
+  gap: 0 1rem;
+}
+
+.contact-form > .btn {
+  margin-top: 0.35rem;
+  width: auto;
+  border-radius: 8px;
+  padding: 0.9rem 1.6rem;
 }
 
 /* Success modal */

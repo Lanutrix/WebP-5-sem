@@ -63,25 +63,27 @@
             <p class="muted">Опишите задачу - подготовим план работ.</p>
 
             <form class="contact-form" id="contact-form" novalidate>
-              <div class="form-group">
-                <label for="name">ФИО</label>
-                <input type="text" id="name" name="name" autocomplete="name" required />
-                <span class="field-error" role="alert"></span>
-              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="name">ФИО</label>
+                  <input type="text" id="name" name="name" autocomplete="name" placeholder="Иван Иванов" required />
+                  <span class="field-error" role="alert"></span>
+                </div>
 
-              <div class="form-group">
-                <label for="phone">Телефон</label>
-                <input
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  autocomplete="tel"
-                  inputmode="tel"
-                  placeholder="+7 (___) ___-__-__"
-                  maxlength="18"
-                  required
-                />
-                <span class="field-error" role="alert"></span>
+                <div class="form-group">
+                  <label for="phone">Телефон</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    autocomplete="tel"
+                    inputmode="tel"
+                    placeholder="+7 (___) ___-__-__"
+                    maxlength="18"
+                    required
+                  />
+                  <span class="field-error" role="alert"></span>
+                </div>
               </div>
 
               <div class="form-row">
@@ -110,7 +112,7 @@
 
               <div class="form-group">
                 <label for="message">Расскажите о проекте</label>
-                <textarea id="message" name="message" required></textarea>
+                <textarea id="message" name="message" placeholder="Площадь участка, что нужно сделать…" required></textarea>
                 <span class="field-error" role="alert"></span>
               </div>
 
