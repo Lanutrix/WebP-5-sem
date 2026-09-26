@@ -547,6 +547,11 @@ ul {
   margin-bottom: 2rem;
 }
 
+.cta-copy .btn {
+  align-self: flex-start;
+  width: auto;
+}
+
 .cta-media {
   display: none;
   position: relative;
