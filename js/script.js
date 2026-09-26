@@ -136,30 +136,7 @@ function initContactForm() {
     });
   }
 
-  const validators = {
-    name: (value) => {
-      if (!value.trim()) return "Укажите ФИО.";
-      if (value.trim().length < 2) return "Имя слишком короткое.";
-      return "";
-    },
-    phone: (value) => {
-      if (!value.trim()) return "Укажите номер телефона.";
-      const digits = getPhoneDigits(value);
-      return digits.length === 11 && digits.startsWith("7")
-        ? ""
-        : "Введите номер в формате +7 (999) 123-45-67.";
-    },
-    propertyType: (value) => (value ? "" : "Выберите тип объекта."),
-    service: (value) => (value ? "" : "Выберите услугу."),
-    message: (value) => {
-      if (!value.trim()) return "Опишите ваш проект.";
-      if (value.trim().length < 10) return "Добавьте чуть больше деталей.";
-      return "";
-    },
-  };
-
-  const setError = (field, message) => {
-    const group = field.closest(".form-group");
+  const setGroupError = (group, message) => {
     const errorEl = group?.querySelector(".field-error");
     if (!group || !errorEl) return;
     if (message) {
@@ -171,16 +148,51 @@ function initContactForm() {
     }
   };
 
+  const validators = {
+    name: (value) => {
+      if (!value.trim()) return "Укажите ФИО.";
+      if (value.trim().length < 2) return "Имя слишком короткое.";
+      return "";
+    },
+    email: (value) => {
+      if (!value.trim()) return "Укажите email.";
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
+        ? ""
+        : "Введите корректный email.";
+    },
+    phone: (value) => {
+      if (!value.trim()) return "";
+      const digits = getPhoneDigits(value);
+      return digits.length === 11 && digits.startsWith("7")
+        ? ""
+        : "Введите номер в формате +7 (999) 123-45-67.";
+    },
+    message: (value) => {
+      if (!value.trim()) return "";
+      if (value.trim().length < 10) return "Добавьте чуть больше деталей.";
+      return "";
+    },
+  };
+
   const validateField = (field) => {
     const name = field.name;
     const fn = validators[name];
     if (!fn) return true;
     const message = fn(field.value);
-    setError(field, message);
+    setGroupError(field.closest(".form-group"), message);
     return !message;
   };
 
-  form.querySelectorAll("input, select, textarea").forEach((field) => {
+  const validateRadioGroup = (name) => {
+    const group = form.querySelector(`[data-radio-group="${name}"]`);
+    if (!group) return true;
+    const checked = form.querySelector(`input[name="${name}"]:checked`);
+    const message = checked ? "" : name === "service" ? "Выберите услугу." : "Выберите тип объекта.";
+    setGroupError(group, message);
+    return !message;
+  };
+
+  form.querySelectorAll("input:not([type='radio']), textarea").forEach((field) => {
     field.addEventListener("blur", () => validateField(field));
     field.addEventListener("input", () => {
       if (field.closest(".form-group")?.classList.contains("error")) {
@@ -189,16 +201,26 @@ function initContactForm() {
     });
   });
 
+  form.querySelectorAll("input[type='radio']").forEach((radio) => {
+    radio.addEventListener("change", () => {
+      validateRadioGroup(radio.name);
+    });
+  });
+
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     let valid = true;
-    form.querySelectorAll("input, select, textarea").forEach((field) => {
+
+    form.querySelectorAll("input:not([type='radio']), textarea").forEach((field) => {
       if (!validateField(field)) valid = false;
     });
 
+    if (!validateRadioGroup("propertyType")) valid = false;
+    if (!validateRadioGroup("service")) valid = false;
+
     if (!valid) {
       const firstError = form.querySelector(
-        ".form-group.error input, .form-group.error select, .form-group.error textarea"
+        ".form-group.error input:not([type='radio']), .form-group.error textarea, .form-group.error input[type='radio']"
       );
       firstError?.focus();
       return;

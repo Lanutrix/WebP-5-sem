@@ -1,10 +1,6 @@
 /* Responsive breakpoints */
 
 @media (min-width: 640px) {
-  .form-row {
-    grid-template-columns: 1fr 1fr;
-  }
-
   .stats-grid {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -84,9 +80,6 @@
     grid-template-columns: 1.1fr 1fr;
   }
 
-  .contact-layout {
-    grid-template-columns: 1.4fr 1fr;
-  }
 }
 
 @media (min-width: 1024px) {
@@ -131,7 +124,11 @@
     padding: 3.5rem 0;
   }
 
-  .contact-form {
+  .contact-card {
+    padding: 1.25rem;
+  }
+
+  .aside-card {
     padding: 1.25rem;
   }
 }
