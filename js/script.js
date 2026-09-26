@@ -154,19 +154,15 @@ function initContactForm() {
       if (value.trim().length < 2) return "Имя слишком короткое.";
       return "";
     },
-    email: (value) => {
-      if (!value.trim()) return "Укажите email.";
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim())
-        ? ""
-        : "Введите корректный email.";
-    },
     phone: (value) => {
-      if (!value.trim()) return "";
+      if (!value.trim()) return "Укажите номер телефона.";
       const digits = getPhoneDigits(value);
       return digits.length === 11 && digits.startsWith("7")
         ? ""
         : "Введите номер в формате +7 (999) 123-45-67.";
     },
+    propertyType: (value) => (value ? "" : "Выберите тип объекта."),
+    service: (value) => (value ? "" : "Выберите услугу."),
     message: (value) => {
       if (!value.trim()) return "";
       if (value.trim().length < 10) return "Добавьте чуть больше деталей.";
@@ -183,27 +179,17 @@ function initContactForm() {
     return !message;
   };
 
-  const validateRadioGroup = (name) => {
-    const group = form.querySelector(`[data-radio-group="${name}"]`);
-    if (!group) return true;
-    const checked = form.querySelector(`input[name="${name}"]:checked`);
-    const message = checked ? "" : name === "service" ? "Выберите услугу." : "Выберите тип объекта.";
-    setGroupError(group, message);
-    return !message;
-  };
-
-  form.querySelectorAll("input:not([type='radio']), textarea").forEach((field) => {
+  form.querySelectorAll("input, select, textarea").forEach((field) => {
     field.addEventListener("blur", () => validateField(field));
     field.addEventListener("input", () => {
       if (field.closest(".form-group")?.classList.contains("error")) {
         validateField(field);
       }
     });
-  });
-
-  form.querySelectorAll("input[type='radio']").forEach((radio) => {
-    radio.addEventListener("change", () => {
-      validateRadioGroup(radio.name);
+    field.addEventListener("change", () => {
+      if (field.closest(".form-group")?.classList.contains("error")) {
+        validateField(field);
+      }
     });
   });
 
@@ -211,16 +197,13 @@ function initContactForm() {
     e.preventDefault();
     let valid = true;
 
-    form.querySelectorAll("input:not([type='radio']), textarea").forEach((field) => {
+    form.querySelectorAll("input, select, textarea").forEach((field) => {
       if (!validateField(field)) valid = false;
     });
 
-    if (!validateRadioGroup("propertyType")) valid = false;
-    if (!validateRadioGroup("service")) valid = false;
-
     if (!valid) {
       const firstError = form.querySelector(
-        ".form-group.error input:not([type='radio']), .form-group.error textarea, .form-group.error input[type='radio']"
+        ".form-group.error input, .form-group.error select, .form-group.error textarea"
       );
       firstError?.focus();
       return;

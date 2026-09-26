@@ -76,20 +76,7 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    autocomplete="email"
-                    placeholder="ivan@example.com"
-                    required
-                  />
-                  <span class="field-error" role="alert"></span>
-                </div>
-
-                <div class="form-group">
-                  <label for="phone">Телефон</label>
+                  <label for="phone">Телефон <span class="req" aria-hidden="true">*</span></label>
                   <input
                     type="tel"
                     id="phone"
@@ -98,51 +85,33 @@
                     inputmode="tel"
                     placeholder="+7 (___) ___-__-__"
                     maxlength="18"
+                    required
                   />
                   <span class="field-error" role="alert"></span>
                 </div>
 
-                <div class="form-group" data-radio-group="propertyType">
-                  <p class="form-label" id="property-type-label">Тип объекта</p>
-                  <div class="radio-pills" role="group" aria-labelledby="property-type-label">
-                    <label class="radio-pill">
-                      <input type="radio" name="propertyType" value="residential" />
-                      Частный
-                    </label>
-                    <label class="radio-pill">
-                      <input type="radio" name="propertyType" value="commercial" />
-                      Коммерческий
-                    </label>
-                  </div>
+                <div class="form-group">
+                  <label for="propertyType">Тип объекта</label>
+                  <select id="propertyType" name="propertyType" required>
+                    <option value="">Выберите…</option>
+                    <option value="residential">Частный</option>
+                    <option value="commercial">Коммерческий</option>
+                  </select>
                   <span class="field-error" role="alert"></span>
                 </div>
-              </div>
 
-              <div class="form-group" data-radio-group="service">
-                <p class="form-label" id="service-label">Нужная услуга</p>
-                <div class="radio-chips" role="group" aria-labelledby="service-label">
-                  <label class="radio-chip">
-                    <input type="radio" name="service" value="design" />
-                    Проектирование полива
-                  </label>
-                  <label class="radio-chip">
-                    <input type="radio" name="service" value="installation" />
-                    Монтаж полива
-                  </label>
-                  <label class="radio-chip">
-                    <input type="radio" name="service" value="repair" />
-                    Ремонт полива
-                  </label>
-                  <label class="radio-chip">
-                    <input type="radio" name="service" value="landscaping" />
-                    Ландшафтный дизайн
-                  </label>
-                  <label class="radio-chip">
-                    <input type="radio" name="service" value="unsure" />
-                    Пока не уверен
-                  </label>
+                <div class="form-group">
+                  <label for="service">Нужная услуга</label>
+                  <select id="service" name="service" required>
+                    <option value="">Выберите…</option>
+                    <option value="design">Проектирование полива</option>
+                    <option value="installation">Монтаж полива</option>
+                    <option value="repair">Ремонт полива</option>
+                    <option value="landscaping">Ландшафтный дизайн</option>
+                    <option value="unsure">Пока не уверен</option>
+                  </select>
+                  <span class="field-error" role="alert"></span>
                 </div>
-                <span class="field-error" role="alert"></span>
               </div>
 
               <div class="form-group">
