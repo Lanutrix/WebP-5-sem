@@ -130,56 +130,20 @@ ul {
 .logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.7rem;
-  font-family: var(--font-heading);
-  font-size: 1.28rem;
-  font-weight: 700;
-  color: var(--dark);
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  transition: color 0.2s, transform 0.2s;
+  line-height: 0;
+  transition: opacity 0.2s, transform 0.2s;
 }
 
 .logo:hover {
-  color: var(--primary);
+  opacity: 0.88;
 }
 
-.logo-mark {
-  display: grid;
-  place-items: center;
-  width: 2.15rem;
-  height: 2.15rem;
-  flex-shrink: 0;
-  border-radius: 0.55rem;
-  background: linear-gradient(145deg, hsl(106 32% 38%), hsl(106 28% 26%));
-  color: #fff;
-  box-shadow:
-    0 2px 8px color-mix(in srgb, var(--primary) 35%, transparent),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.logo-mark svg {
-  width: 1.15rem;
-  height: 1.15rem;
-}
-
-.logo-footer {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.65rem;
-  margin-bottom: 1rem;
-  color: #fff;
-  font-size: 1.2rem;
-}
-
-.logo-footer .logo-mark {
-  width: 1.9rem;
-  height: 1.9rem;
-  box-shadow: none;
-}
-
-.logo-footer:hover {
-  color: hsl(106 35% 70%);
+.logo img {
+  display: block;
+  height: 3.1rem;
+  width: auto;
+  max-width: min(200px, 46vw);
+  object-fit: contain;
 }
 
 .nav-desktop {
