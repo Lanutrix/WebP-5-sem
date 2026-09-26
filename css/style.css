@@ -1,5 +1,5 @@
 /* Зелёный Берег — базовые стили */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Manrope:wght@400;500;600;700&display=swap");
 
 :root {
   --background: hsl(37 39% 94%);
@@ -11,8 +11,8 @@
   --border: hsl(37 15% 82%);
   --card: hsl(37 39% 94%);
   --dark: #1a1f1a;
-  --font-sans: "Source Sans 3", system-ui, sans-serif;
-  --font-heading: "Playfair Display", Georgia, serif;
+  --font-sans: "Manrope", "Segoe UI", system-ui, sans-serif;
+  --font-heading: "Cormorant Garamond", "Times New Roman", serif;
   --container: 1120px;
   --header-h: 5rem;
 }
@@ -57,6 +57,7 @@ h4 {
   line-height: 1.2;
   margin: 0 0 0.75rem;
   font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
 p {
