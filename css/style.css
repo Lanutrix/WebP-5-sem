@@ -1,4 +1,4 @@
-/* Evergreen Land Solutions — base styles */
+/* Зелёный Берег — базовые стили */
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap");
 
 :root {
@@ -92,12 +92,20 @@ ul {
   gap: 1rem;
 }
 
-.logo img {
-  height: auto;
-  max-height: 3.5rem;
-  width: auto;
-  max-width: 240px;
-  object-fit: contain;
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.logo-footer {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-size: 1.25rem;
 }
 
 .nav-desktop {
@@ -750,13 +758,6 @@ ul {
   grid-template-columns: 1fr;
   gap: 2.5rem;
   padding-bottom: 3rem;
-}
-
-.footer-brand img {
-  max-height: 2.5rem;
-  max-width: 180px;
-  width: auto;
-  margin-bottom: 1rem;
 }
 
 .footer-brand p {

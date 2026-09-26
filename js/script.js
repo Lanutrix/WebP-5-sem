@@ -1,4 +1,4 @@
-/* Shared interactivity: mobile menu + contact form validation */
+/* Общая интерактивность: бургер-меню и валидация формы */
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileMenu();
@@ -39,25 +39,25 @@ function initContactForm() {
 
   const validators = {
     name: (value) => {
-      if (!value.trim()) return "Please enter your full name.";
-      if (value.trim().length < 2) return "Name is too short.";
+      if (!value.trim()) return "Укажите ФИО.";
+      if (value.trim().length < 2) return "Имя слишком короткое.";
       return "";
     },
     email: (value) => {
-      if (!value.trim()) return "Please enter your email.";
+      if (!value.trim()) return "Укажите электронную почту.";
       const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
-      return ok ? "" : "Please enter a valid email address.";
+      return ok ? "" : "Введите корректный адрес email.";
     },
     phone: (value) => {
-      if (!value.trim()) return "Please enter your phone number.";
+      if (!value.trim()) return "Укажите номер телефона.";
       const digits = value.replace(/\D/g, "");
-      return digits.length >= 10 ? "" : "Enter a valid phone (at least 10 digits).";
+      return digits.length >= 10 ? "" : "Введите корректный телефон (не менее 10 цифр).";
     },
-    propertyType: (value) => (value ? "" : "Select a property type."),
-    service: (value) => (value ? "" : "Select a service."),
+    propertyType: (value) => (value ? "" : "Выберите тип объекта."),
+    service: (value) => (value ? "" : "Выберите услугу."),
     message: (value) => {
-      if (!value.trim()) return "Tell us a bit about your project.";
-      if (value.trim().length < 10) return "Please add a few more details.";
+      if (!value.trim()) return "Опишите ваш проект.";
+      if (value.trim().length < 10) return "Добавьте чуть больше деталей.";
       return "";
     },
   };
@@ -101,7 +101,9 @@ function initContactForm() {
     });
 
     if (!valid) {
-      const firstError = form.querySelector(".form-group.error input, .form-group.error select, .form-group.error textarea");
+      const firstError = form.querySelector(
+        ".form-group.error input, .form-group.error select, .form-group.error textarea"
+      );
       firstError?.focus();
       return;
     }
@@ -109,7 +111,7 @@ function initContactForm() {
     if (success) {
       success.classList.add("is-visible");
       success.textContent =
-        "Thanks! Your request was validated locally. We'll get back within one business day.";
+        "Спасибо! Заявка прошла проверку. Мы свяжемся с вами в течение одного рабочего дня.";
     }
     form.reset();
   });

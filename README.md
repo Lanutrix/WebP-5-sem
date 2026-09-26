@@ -1,6 +1,6 @@
 # WebП-5-сем — Лабораторная работа №1
 
-Статический клон [evergreenlandtx.com](https://evergreenlandtx.com/) на HTML5 / CSS3 / JavaScript.
+Статический сайт компании «Зелёный Берег» на HTML5 / CSS3 / JavaScript.
 
 ## Структура
 
@@ -14,7 +14,7 @@
 │   └── responsive.css
 ├── js/
 │   └── script.js   # бургер-меню + валидация формы
-└── images/         # медиа с оригинального сайта
+└── images/
 ```
 
 ## Запуск
