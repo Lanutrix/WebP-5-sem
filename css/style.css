@@ -519,18 +519,22 @@ ul {
 .cta-band {
   background: var(--dark);
   color: #fff;
+  overflow: hidden;
 }
 
 .cta-grid {
   display: grid;
   grid-template-columns: 1fr;
   min-height: 28rem;
+  width: min(100% - 3rem, var(--container));
+  margin-inline: auto;
 }
 
 .cta-copy {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
   padding: 4rem 0;
 }
 
@@ -556,6 +560,8 @@ ul {
   display: none;
   position: relative;
   min-height: 20rem;
+  margin: 0;
+  align-self: stretch;
 }
 
 .cta-media img {
@@ -564,6 +570,7 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center top;
 }
 
 .cta-media::after {
@@ -571,6 +578,7 @@ ul {
   position: absolute;
   inset: 0;
   background: linear-gradient(to right, rgba(26, 31, 26, 0.65), transparent);
+  pointer-events: none;
 }
 
 /* Page hero (inner) */

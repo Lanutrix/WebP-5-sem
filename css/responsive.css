@@ -91,15 +91,21 @@
 
 @media (min-width: 1024px) {
   .cta-grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    min-height: 30rem;
   }
 
   .cta-copy {
-    padding: 5rem 0 5rem 0;
+    padding: 5rem clamp(1.5rem, 6vw, 5rem) 5rem clamp(1.5rem, calc((100vw - var(--container)) / 2 + 1.5rem), 8rem);
+    box-sizing: border-box;
   }
 
   .cta-media {
     display: block;
+    min-height: 100%;
   }
 
   .counties {
