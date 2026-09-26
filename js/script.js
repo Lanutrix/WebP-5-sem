@@ -161,6 +161,11 @@ function initContactForm() {
         ? ""
         : "Введите номер в формате +7 (999) 123-45-67.";
     },
+    email: (value) => {
+      if (!value.trim()) return "Укажите email.";
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+      return ok ? "" : "Введите корректный email, например ivan@example.com.";
+    },
     propertyType: (value) => (value ? "" : "Выберите тип объекта."),
     service: (value) => (value ? "" : "Выберите услугу."),
     message: (value) => {
