@@ -88,31 +88,6 @@ ul {
   transition: box-shadow 0.25s ease, background 0.25s ease;
 }
 
-.site-header::before {
-  content: "";
-  position: absolute;
-  inset: 0 0 auto;
-  height: 3px;
-  background: linear-gradient(
-    90deg,
-    hsl(106 28% 28%),
-    hsl(106 40% 48%),
-    hsl(90 35% 42%),
-    hsl(106 28% 28%)
-  );
-  background-size: 200% 100%;
-  animation: header-accent 8s linear infinite;
-}
-
-@keyframes header-accent {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
-}
-
 .site-header.is-scrolled {
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 10px 32px rgba(26, 31, 26, 0.1);
