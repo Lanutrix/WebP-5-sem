@@ -27,6 +27,12 @@ yarn-error.log*
 pnpm-debug.log*
 .pnpm-store/
 
+# Python
+.venv/
+venv/
+*.db
+*.sqlite3
+
 # Coverage / caches
 coverage/
 .cache/

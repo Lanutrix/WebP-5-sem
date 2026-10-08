@@ -7,5 +7,6 @@
 | `lab1/` | ЛР1 — статическая вёрстка HTML/CSS/JS |
 | `lab2/` | ЛР2 — CMS WordPress |
 | `lab3/` | ЛР3 — SPA на React (Vite + React Router) |
+| `lab4/` | ЛР4 — REST API на FastAPI + SQLite, интеграция с React |
 
 Автор: Одинцов Д. М., группа КТбо3-5.
