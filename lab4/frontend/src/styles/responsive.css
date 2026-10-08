@@ -1,0 +1,162 @@
+/* Responsive breakpoints */
+
+@media (min-width: 640px) {
+  .stats-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .header-inner {
+    grid-template-columns: 1fr auto 1fr;
+  }
+
+  .nav-desktop {
+    display: flex;
+    justify-self: center;
+  }
+
+  .header-cta {
+    display: block;
+    justify-self: end;
+  }
+
+  .header-actions {
+    display: flex;
+    justify-self: end;
+  }
+
+  .calc-layout {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: start;
+  }
+
+  .calc-row {
+    grid-template-columns: 7rem minmax(0, 1fr) 11rem;
+  }
+
+  .cart-layout {
+    grid-template-columns: minmax(0, 1fr) 22rem;
+    align-items: start;
+  }
+
+  .admin-services {
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    align-items: start;
+  }
+
+  .stat-cards {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .nav-mobile {
+    display: none !important;
+  }
+
+  .logo img {
+    height: 3.55rem;
+    max-width: 220px;
+  }
+
+  .cards-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .counties {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr;
+  }
+
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  .service-block {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+  .service-block.reverse {
+    direction: rtl;
+  }
+
+  .service-block.reverse > * {
+    direction: ltr;
+  }
+
+  .service-block img {
+    height: 360px;
+  }
+
+  .about-story {
+    grid-template-columns: 1.1fr 1fr;
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .cta-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    min-height: 30rem;
+  }
+
+  .cta-copy {
+    padding: 5rem clamp(1.5rem, 6vw, 5rem) 5rem clamp(1.5rem, calc((100vw - var(--container)) / 2 + 1.5rem), 8rem);
+    box-sizing: border-box;
+  }
+
+  .cta-media {
+    display: block;
+    min-height: 100%;
+  }
+
+  .counties {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+  }
+}
+
+/* Mobile-first fine-tuning under 320–480 */
+@media (max-width: 479px) {
+  .container {
+    width: min(100% - 2rem, var(--container));
+  }
+
+  .hero-content {
+    padding: 4.5rem 0;
+  }
+
+  .section {
+    padding: 3.5rem 0;
+  }
+
+  .contact-card {
+    padding: 1.25rem;
+  }
+
+  .aside-card {
+    padding: 1.25rem;
+  }
+}
